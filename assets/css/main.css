@@ -1552,23 +1552,29 @@ input, select, textarea {
 
 		.image img {
 			display: block;
-			width: 100%;
+			width: auto; /* This is what was messing up my photo*/
+			max-width: 250px; /* Controls size */
+			height: auto;
+			margin: 0 auto; /* Centers the image */
 		}
 
 		.image.fit {
 			display: block;
-			width: 100%;
+			width: auto;
+			max-width:250px;
 		}
 
 		.image.featured {
 			display: block;
-			width: 100%;
+			width: auto;
+			max-width: 250px;
 			margin: 0 0 2em 0;
 		}
 
 		.image.left {
 			float: left;
 			margin: 0 2em 2em 0;
+			max-width: 250px;
 		}
 
 		.image.centered {
@@ -1579,6 +1585,7 @@ input, select, textarea {
 			.image.centered img {
 				margin: 0 auto;
 				width: auto;
+				max-width: 250px;
 			}
 
 /* Button */
@@ -2180,14 +2187,18 @@ s
 					margin-left: 0;
 					border-left: 0;
 				}
+				/* Footer icons spacing */
+		#footer .icons {
+    		padding-left: 0;           /* keeps them centered nicely */
+		}
 
-		@media screen and (max-width: 736px) {
+		#footer .icons a {
+    		display: inline-block;
+    		margin: 0 0.75em;          /* space between each icon */
+		}
 
-			#footer .copyright li {
-				padding-left: 0.5em;
-				margin-left: 0.5em;
-			}
-			#profile 			.profile-img {
+			/* Moved this out of @media screen to make it global */
+				#profile 			.profile-img {
 				background-color: #f4eada; /* Soft beige background */
 				padding: 10px;
 				width: 100%;
@@ -2226,5 +2237,13 @@ s
 				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 				object-fit: cover;
 				}
+
+
+		@media screen and (max-width: 736px) {
+
+			#footer .copyright li {
+				padding-left: 0.5em;
+				margin-left: 0.5em;
+			}
 
 		}
